@@ -3,19 +3,19 @@ import java.util.Random;
 
 public interface DataGenerator {
 
-    static ArrayList<String> generateArray(int lengthOfArray, int maxLenghtWord){
+    static ArrayList<String> generateArray(int lengthOfArray, int maxLengthWord, int minLengthWord){
 
         ArrayList<String> generatedData = new ArrayList<>();
         Random rand = new Random();
 
         for(int i = 0; i < lengthOfArray; i++){
-            int noOfCharacters = rand.nextInt(maxLenghtWord + 1);
+            int noOfCharacters = rand.nextInt(maxLengthWord - minLengthWord + 1) + minLengthWord;
             char[] auxCharArray = new char[noOfCharacters];
             for(int j = 0; j < noOfCharacters; j++){
                 char character = (char)(rand.nextInt(26) + 'a');
                 auxCharArray[j] = character;
             }
-            generatedData.add(auxCharArray.toString());
+            generatedData.add(String.valueOf(auxCharArray));
         }
 
         return generatedData;
