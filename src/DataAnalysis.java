@@ -4,7 +4,7 @@ public class DataAnalysis {
     public static void main(String[] args) {
         ArrayList<String> list= DataGenerator.generateArray(10000000, 100, 5);
         callSingleThreaded(0, list);
-        ThreadManager mngr = new ThreadManager(16, list, 0);
+        ThreadManager mngr = new ThreadManager(2, list, 0);
         long start = System.currentTimeMillis();
         mngr.runThreads();
         long stop = System.currentTimeMillis();
