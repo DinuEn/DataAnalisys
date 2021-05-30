@@ -3,6 +3,7 @@ import java.util.List;
 public interface DataUtilSingleThread {
 
     static final int ASCII_SIZE = 256;
+    static int[] count = new int[ASCII_SIZE];
 
     public static int averageLength(List<String> data) {
         long total = 0;
@@ -32,9 +33,7 @@ public interface DataUtilSingleThread {
         return minLen;
     }
 
-    public static char mostFrequentChar(List<String> data) {
-        int count[] = new int[ASCII_SIZE]; 
-
+    public static void frequency(List<String> data) {
         synchronized(count) {
             for(String word: data) {
                 int len = word.length();
@@ -42,18 +41,20 @@ public interface DataUtilSingleThread {
                     count[(int)word.charAt(i)]++;
                 }
             }
-
-            int max = -1;
-            char result = data.get(0).charAt(0);
-
-            for(int i = 0; i < ASCII_SIZE; i++) {
-                if(max < count[i]) {
-                    max = count[i];
-                    result = (char) i;
-                }
-            }
-            return result;
         }
+    }
+
+    public static char mostFrequentChar() {
+        int max = -1;
+        char result = '-';
+
+        for(int i = 0; i < ASCII_SIZE; i++) {
+            if(max < count[i]) {
+                max = count[i];
+                result = (char) i;
+            }
+        }
+        return result;
     }
 }
 

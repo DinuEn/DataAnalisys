@@ -1,14 +1,17 @@
 import java.util.ArrayList;
 
 public class DataAnalysis {
+
+    static int noOfThreads = 4;
+    static int functionCode = 3;
     public static void main(String[] args) {
-        ArrayList<String> list= DataGenerator.generateArray(10000000, 100, 5);
-        callSingleThreaded(0, list);
-        ThreadManager mngr = new ThreadManager(2, list, 0);
+        ArrayList<String> list= DataGenerator.generateArray(1000000, 100, 5);
+        callSingleThreaded(functionCode, list);
+        ThreadManager mngr = new ThreadManager(noOfThreads, list, functionCode);
         long start = System.currentTimeMillis();
         mngr.runThreads();
         long stop = System.currentTimeMillis();
-        System.out.println("[MultiThreaded] Operatia a durat " + (stop - start) + " ms");
+        System.out.println("[" + noOfThreads + " Threaduri" + "] Operatia a durat " + (stop - start) + " ms");
     }
 
     public static void callSingleThreaded(int functionCode, ArrayList<String> list) {
@@ -29,11 +32,12 @@ public class DataAnalysis {
                 System.out.println("Lungimea minima este " + result);
                 break;
            case 3:
-                resultChar = DataUtilSingleThread.mostFrequentChar(list);
-                System.out.println("Cel mai intalnit caracter este" + resultChar);
+                DataUtilSingleThread.frequency(list);
+                resultChar = DataUtilSingleThread.mostFrequentChar();
+                System.out.println("Cel mai intalnit caracter este " + resultChar);
                 break;
        }
        long stop = System.currentTimeMillis();
-       System.out.println("Operatia a durat " + (stop - start) + " ms");
+       System.out.println("[1 Thread] Operatia a durat " + (stop - start) + " ms");
     }
 }

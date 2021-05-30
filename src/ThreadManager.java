@@ -42,9 +42,7 @@ public class ThreadManager {
                 e.printStackTrace();
             }
         }
-        for(int i = 0; i < nOfThreads; i++) {
-            System.out.println(runnableList.get(i).getResult());
-        }
-        
+        char resultChar = DataUtilSingleThread.mostFrequentChar(); 
+        System.out.println("Cel mai intalnit caracter este " + resultChar);
     }
 }
