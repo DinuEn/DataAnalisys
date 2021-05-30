@@ -12,6 +12,11 @@ public class DataUtilThread implements Runnable {
 
     DataUtilThread() {}
 
+    public DataUtilThread(ArrayList<String> data, int functionCode) {
+        this.data = data;
+        this.functionCode = functionCode;
+    }
+
     DataUtilThread(ArrayList<String> data) {
         this.data = data;
     }
