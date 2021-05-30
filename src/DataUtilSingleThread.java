@@ -6,14 +6,10 @@ public interface DataUtilSingleThread {
     static int[] count = new int[ASCII_SIZE];
 
     public static int averageLength(List<String> data) {
-        long start = System.currentTimeMillis();
         long total = 0;
         for(String word: data) {
             total += word.length();
         }
-        long stop = System.currentTimeMillis();
-        System.out.println("Marimea array-ului: " + data.size());
-        System.out.println("Threadul a durat " + (stop - start) + " ms");
         return (int) total / data.size();
     }
 

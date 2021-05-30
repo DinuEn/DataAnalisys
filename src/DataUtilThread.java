@@ -39,7 +39,7 @@ public class DataUtilThread implements Runnable {
 
     @Override
     public void run() {
-        //long start = System.currentTimeMillis();
+        long start = System.currentTimeMillis();
         switch(functionCode) {
            case 0:
                 result = DataUtilSingleThread.averageLength(data);
@@ -54,7 +54,7 @@ public class DataUtilThread implements Runnable {
                 DataUtilSingleThread.frequency(data);
                 break;
         }
-        //long stop = System.currentTimeMillis();
-        //System.out.println("Threadul a durat " + (stop - start) + " ms");
+        long stop = System.currentTimeMillis();
+        System.out.println("Threadul a durat " + (stop - start) + " ms");
     }
 }
