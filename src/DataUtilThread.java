@@ -42,14 +42,16 @@ public class DataUtilThread implements Runnable {
        switch(functionCode) {
            case 0:
                 result = DataUtilSingleThread.averageLength(data);
+                break;
            case 1:
                 result = DataUtilSingleThread.maxLength(data);
+                break;
            case 2:
                 result = DataUtilSingleThread.minLength(data);
+                break;
            case 3:
                 resultChar = DataUtilSingleThread.mostFrequentChar(data);
+                break;
        }
     }
-
-    
 }
