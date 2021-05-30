@@ -2,10 +2,10 @@ import java.util.ArrayList;
 
 public class DataAnalysis {
 
-    static int noOfThreads = 4;
-    static int functionCode = 3;
+    static int noOfThreads = 2;
+    static int functionCode = 0;
     public static void main(String[] args) {
-        ArrayList<String> list= DataGenerator.generateArray(1000000, 100, 5);
+        ArrayList<String> list= DataGenerator.generateArray(100000, 10000, 100);
         callSingleThreaded(functionCode, list);
         ThreadManager mngr = new ThreadManager(noOfThreads, list, functionCode);
         long start = System.currentTimeMillis();

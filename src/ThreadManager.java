@@ -5,7 +5,7 @@ public class ThreadManager {
     private ArrayList<Thread> threadArrayList = null;
     private int nOfThreads = 0;
     private ArrayList<String> dataList= null;
-    private int functionCode = 0;
+    private int functionCode;
     private ArrayList<DataUtilThread> runnableList;
 
 
@@ -42,7 +42,10 @@ public class ThreadManager {
                 e.printStackTrace();
             }
         }
-        char resultChar = DataUtilSingleThread.mostFrequentChar(); 
-        System.out.println("Cel mai intalnit caracter este " + resultChar);
+        
+        if(functionCode == 3) {
+            char resultChar = DataUtilSingleThread.mostFrequentChar(); 
+            System.out.println("Cel mai intalnit caracter este " + resultChar);
+        }
     }
 }
