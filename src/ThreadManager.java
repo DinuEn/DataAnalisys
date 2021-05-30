@@ -5,14 +5,12 @@ public class ThreadManager {
     private int nOfThreads = 0;
     private ArrayList<String> dataList= null;
     private int opCode = 0;
-    private int functionCode = 0;
 
 
     public ThreadManager(int nOfThreads, ArrayList<String> dataList, int opCode, int functionCode) {
         this.nOfThreads = nOfThreads;
         this.dataList = dataList;
         this.opCode = opCode;
-        this.functionCode = functionCode;
     }
 
 
