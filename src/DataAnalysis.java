@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class DataAnalysis {
 
-    static int noOfThreads = 4;
+    static int noOfThreads = 2;
     static int functionCode = 3;
     public static void main(String[] args) {
         ArrayList<String> list= DataGenerator.generateArray(100000, 10000, 100);
