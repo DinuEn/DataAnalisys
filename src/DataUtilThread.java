@@ -2,20 +2,26 @@ import java.util.ArrayList;
 
 public class DataUtilThread implements Runnable {
     private ArrayList<String> data;
-    // opCode = 0 => averageLength()
-    // opCode = 1 => maxLength()
-    // opCode = 2 => minLength()
-    // opCode = 3 => mostFrequentChar()
-    private int opCode;
+    // functionCode = 0 => averageLength()
+    // functionCode = 1 => maxLength()
+    // functionCode = 2 => minLength()
+    // functionCode = 3 => mostFrequentChar()
+    private int functionCode;
     private int result;
     private char resultChar;
+
+    DataUtilThread() {}
 
     DataUtilThread(ArrayList<String> data) {
         this.data = data;
     }
 
-    public void setFunctionCode(int opCode) {
-        this.opCode = opCode;
+    public void setData(ArrayList<String> data) {
+        this.data = data;
+    }
+
+    public void setFunctionCode(int functionCode) {
+        this.functionCode = functionCode;
     }
 
     public int getResult() {
@@ -28,7 +34,7 @@ public class DataUtilThread implements Runnable {
 
     @Override
     public void run() {
-       switch(opCode) {
+       switch(functionCode) {
            case 0:
                 result = DataUtilSingleThread.averageLength(data);
            case 1:
