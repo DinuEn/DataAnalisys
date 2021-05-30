@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class DataAnalysis {
     public static void main(String[] args) {
         ArrayList<String> list= DataGenerator.generateArray(10000000, 100, 5);
-        callSingleThreaded(0, list);
-        ThreadManager mngr = new ThreadManager(16, list, 0);
+        //callSingleThreaded(3, list);
+        ThreadManager mngr = new ThreadManager(4, list, 3);
         long start = System.currentTimeMillis();
         mngr.runThreads();
         long stop = System.currentTimeMillis();
@@ -29,8 +29,9 @@ public class DataAnalysis {
                 System.out.println("Lungimea minima este " + result);
                 break;
            case 3:
-                resultChar = DataUtilSingleThread.mostFrequentChar(list);
-                System.out.println("Cel mai intalnit caracter este" + resultChar);
+                DataUtilSingleThread.frequency(list);
+                resultChar = DataUtilSingleThread.mostFrequentChar();
+                System.out.println("Cel mai intalnit caracter este " + resultChar);
                 break;
        }
        long stop = System.currentTimeMillis();

@@ -50,7 +50,7 @@ public class DataUtilThread implements Runnable {
                 result = DataUtilSingleThread.minLength(data);
                 break;
            case 3:
-                resultChar = DataUtilSingleThread.mostFrequentChar(data);
+                DataUtilSingleThread.frequency(data);
                 break;
        }
     }
