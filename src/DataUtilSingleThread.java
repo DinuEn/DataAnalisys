@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class DataUtilSingleThread {
+public interface DataUtilSingleThread {
 
     static final int ASCII_SIZE = 256;
 
@@ -52,6 +52,6 @@ public class DataUtilSingleThread {
             }
         }
         return result;
-
     }
 }
+
