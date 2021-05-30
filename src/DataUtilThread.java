@@ -1,7 +1,7 @@
-import java.util.ArrayList;
+import java.util.List;
 
 public class DataUtilThread implements Runnable {
-    private ArrayList<String> data;
+    private List<String> data;
     // functionCode = 0 => averageLength()
     // functionCode = 1 => maxLength()
     // functionCode = 2 => minLength()
@@ -12,16 +12,16 @@ public class DataUtilThread implements Runnable {
 
     DataUtilThread() {}
 
-    public DataUtilThread(ArrayList<String> data, int functionCode) {
+    public DataUtilThread(List<String> data, int functionCode) {
         this.data = data;
         this.functionCode = functionCode;
     }
 
-    DataUtilThread(ArrayList<String> data) {
+    DataUtilThread(List<String> data) {
         this.data = data;
     }
 
-    public void setData(ArrayList<String> data) {
+    public void setData(List<String> data) {
         this.data = data;
     }
 

@@ -2,7 +2,10 @@ import java.util.ArrayList;
 
 public class DataAnalysis {
     public static void main(String[] args) {
-        ArrayList<String> list= DataGenerator.generateArray(100, 10, 5);
+        ArrayList<String> list= DataGenerator.generateArray(100000, 100, 5);
+        callSingleThreaded(0, list);
+        ThreadManager mngr = new ThreadManager(4, list, 0);
+        mngr.runThreads();
     }
 
     public static void callSingleThreaded(int functionCode, ArrayList<String> list) {
@@ -12,15 +15,15 @@ public class DataAnalysis {
         switch(functionCode) {
            case 0:
                 result = DataUtilSingleThread.averageLength(list);
-                System.out.println("Lungimea medie este" + result);
+                System.out.println("Lungimea medie este " + result);
                 break;
            case 1:
                 result = DataUtilSingleThread.maxLength(list);
-                System.out.println("Lungimea maxima este" + result);
+                System.out.println("Lungimea maxima este " + result);
                 break;
            case 2:
                 result = DataUtilSingleThread.minLength(list);
-                System.out.println("Lungimea minima este" + result);
+                System.out.println("Lungimea minima este " + result);
                 break;
            case 3:
                 resultChar = DataUtilSingleThread.mostFrequentChar(list);
