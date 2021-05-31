@@ -1,11 +1,24 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DataAnalysis {
 
-    static int noOfThreads = 2;
-    static int functionCode = 3;
+    static int noOfThreads = 12;
+    static int functionCode = 2;
     public static void main(String[] args) {
-        ArrayList<String> list= DataGenerator.generateArray(100000, 10000, 100);
+
+        Scanner s = new Scanner(System.in);
+        System.out.println("Introduceti numarul de threaduri:");
+        noOfThreads = s.nextInt();
+        System.out.println("Introduceti codul operatiei:");
+        functionCode = s.nextInt();
+
+        System.out.println("Precizati dimensiunile pentru generator in ordinea urmatoare: numarul de elemente, dimiensiunea maxima a unui element, apoi dimensiunea minima");
+        int lengthOfArray = s.nextInt();
+        int maxLengthWord = s.nextInt();
+        int minLengthWord = s.nextInt();
+
+        ArrayList<String> list= DataGenerator.generateArray(lengthOfArray, maxLengthWord, minLengthWord);
         callSingleThreaded(functionCode, list);
         ThreadManager mngr = new ThreadManager(noOfThreads, list, functionCode);
         long start = System.currentTimeMillis();
@@ -14,6 +27,7 @@ public class DataAnalysis {
         System.out.println("[" + noOfThreads + " Threaduri" + "] Operatia a durat " + (stop - start) + " ms");
     }
 
+    //apelarea functiei SingleThreaded
     public static void callSingleThreaded(int functionCode, ArrayList<String> list) {
         int result = 0;
         char resultChar = list.get(0).charAt(0);

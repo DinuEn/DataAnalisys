@@ -9,10 +9,10 @@ public interface DataGenerator {
         Random rand = new Random();
 
         for(int i = 0; i < lengthOfArray; i++){
-            int noOfCharacters = rand.nextInt(maxLengthWord - minLengthWord + 1) + minLengthWord;
+            int noOfCharacters = rand.nextInt(maxLengthWord - minLengthWord + 1) + minLengthWord; //generare numar random intre minLengthWord si maxLengthWord
             char[] auxCharArray = new char[noOfCharacters];
             for(int j = 0; j < noOfCharacters; j++){
-                char character = (char)(rand.nextInt(26) + 'a');
+                char character = (char)(rand.nextInt(26) + 'a'); //generare caracter random
                 auxCharArray[j] = character;
             }
             generatedData.add(String.valueOf(auxCharArray));

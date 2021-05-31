@@ -21,6 +21,7 @@ public class DataUtilThread implements Runnable {
         this.data = data;
     }
 
+    //getteri si setteri
     public void setData(List<String> data) {
         this.data = data;
     }
@@ -37,6 +38,7 @@ public class DataUtilThread implements Runnable {
         return resultChar;
     }
 
+    //implementarea functiei run pentru a permite rularea pe Threaduri
     @Override
     public void run() {
         long start = System.currentTimeMillis();

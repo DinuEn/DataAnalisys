@@ -8,6 +8,7 @@ public class ThreadManager {
     private int functionCode;
     private ArrayList<DataUtilThread> runnableList;
 
+    //constructor
     public ThreadManager(int nOfThreads, ArrayList<String> dataList, int functionCode) {
         this.nOfThreads = nOfThreads;
         this.dataList = dataList;
@@ -15,6 +16,7 @@ public class ThreadManager {
         runnableList = new ArrayList<>();
     }
 
+    //initializarea Threadurilor
     public void setThreadArrayList(ArrayList<Thread> threadArrayList) {
         int subListLen = (int) dataList.size() / nOfThreads;
         for (int i = 0; i < nOfThreads; i++) {
@@ -25,6 +27,7 @@ public class ThreadManager {
         this.threadArrayList = ThreadGenerator.generateThreads(nOfThreads, runnableList);
     }
 
+    //rularea Threadurilor
     public void runThreads() {
         setThreadArrayList(threadArrayList);
         // starting threads
@@ -63,6 +66,7 @@ public class ThreadManager {
         }
     }
 
+    //functii ce combina rezultatele Threadurilor pentru a obtine rezultatul final
     public int avgOfThreads() {
         int avg = 0;
         for (int i = 0; i < nOfThreads; i++) {
